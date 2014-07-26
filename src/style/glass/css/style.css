@@ -1,0 +1,67 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+/* glass */
+
+.svcContainer {
+	backgroundColor: #000000;
+	backgroundAlpha: 0.1;
+	cornerRadius: 4;
+	borderWeight: 4;
+	borderColor: #000000;
+	borderAlpha: 0;
+}
+
+
+.videoContainer {
+	backgroundColor: #000000;
+	backgroundAlpha: 0.02;
+	cornerRadius: 4;
+	borderWeight: 4;
+	borderColor: #000000;
+	borderAlpha: 0;
+}
+
+.statusContainer {
+	backgroundColor: #000000;
+	backgroundAlpha: 0.01;
+	cornerRadius: 4;
+	borderWeight: 4;
+	borderColor: #000000;
+	borderAlpha: 0;
+}
+
+.chatContainer {
+	backgroundColor: #000000;
+	backgroundAlpha: 0.02;
+	cornerRadius: 4;
+	borderWeight: 4;
+	borderColor: #000000;
+	borderAlpha: 0;
+}
+
+.chatOutput {
+	contentBackgroundAlpha: 0;
+	borderAlpha: 0;
+	color: #1D80B7;
+}
+
+.chatInput {
+	focusAlpha: 0.9;
+}
+
+.svcButton {
+	bottom: -27;
+	right: 5; 
+}
+
+.findNextButton {
+	top: 18;
+	right: 28;
+}
+
+.loader {
+	top: 92;
+	right: 132;
+}

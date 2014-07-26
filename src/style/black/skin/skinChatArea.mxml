@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+    ADOBE SYSTEMS INCORPORATED
+    Copyright 2008 Adobe Systems Incorporated
+    All Rights Reserved.
+
+    NOTICE: Adobe permits you to use, modify, and distribute this file
+    in accordance with the terms of the license agreement accompanying it.
+
+-->
+
+<!--- The default skin class for Spark TextArea component.  
+
+     @see spark.components.TextArea
+        
+      @langversion 3.0
+      @playerversion Flash 10
+      @playerversion AIR 1.5
+      @productversion Flex 4
+-->
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:fb="http://ns.adobe.com/flashbuilder/2009" alpha.disabled="0.5">
+	
+	<fx:Metadata>
+		<![CDATA[ 
+		/** 
+		* @copy spark.skins.spark.ApplicationSkin#hostComponent
+		*/
+        [HostComponent("spark.components.TextArea")]
+    ]]>
+    </fx:Metadata>
+    
+	<fx:Script fb:purpose="styling">
+		<![CDATA[         
+			/**
+			 *  @private
+			 */
+			override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number) : void
+			{
+				// Push backgroundColor and backgroundAlpha directly.
+				// Handle undefined backgroundColor by hiding the background object.
+				if (isNaN(getStyle("backgroundColor")))
+				{
+					//background.visible = false;
+					background.visible = true;
+				}
+				else
+				{
+					background.visible = true;
+					//					bgFill.color = getStyle("backgroundColor");
+					//					bgFill.alpha = getStyle("backgroundAlpha");
+				}
+				
+				super.updateDisplayList(unscaledWidth, unscaledHeight);
+			}
+		]]>        
+	</fx:Script>
+    
+    <fx:Script>
+        <![CDATA[
+        /** 
+         * @private 
+         */     
+        private static const focusExclusions:Array = ["textDisplay"];
+
+        /**
+         *  @private
+         */
+        override public function get focusSkinExclusions():Array { return focusExclusions;};
+        ]]>
+    </fx:Script>
+    
+    <s:states>
+        <s:State name="normal"/>
+        <s:State name="disabled" stateGroups="disabledStates"/>
+        <s:State name="normalWithPrompt"/>
+        <s:State name="disabledWithPrompt" stateGroups="disabledStates"/>
+    </s:states>
+    
+    <!-- border --> 
+    <!--- @private -->
+    <s:Rect id="border" left="0" right="0" top="0" bottom="0">
+        <s:stroke>
+            <!--- @private -->
+            <s:SolidColorStroke id="borderStroke" color="0x1D80B7" weight="4"/>            
+        </s:stroke>
+    </s:Rect>
+
+    <!-- fill -->
+    <!--- Defines the appearance of the TextArea component's background. -->
+    <s:Rect id="background" left="1" right="1" top="1" bottom="1">
+        <s:fill>
+            <!--- @private Defines the background fill color. -->
+            <s:SolidColor id="bgFill" color="0x1D80B7" alpha="0.5" />
+        </s:fill>
+    </s:Rect>
+    
+    <!-- shadow -->
+    <!--- @private -->
+    <s:Rect id="shadow" left="1" top="1" right="1" height="1">
+        <s:fill>
+            <s:SolidColor color="0x000000" alpha="0.12" />
+        </s:fill>
+    </s:Rect>
+
+    <!--- Defines the scroller that is used to scroll the TextArea control. -->
+    <s:Scroller id="scroller" left="0" top="0" right="0" bottom="0" minViewportInset="1" measuredSizeIncludesScrollBars="false" hasFocusableChildren="false">
+        <!--- @copy spark.components.supportClasses.SkinnableTextBase#textDisplay -->
+        <s:RichEditableText id="textDisplay" heightInLines="10" widthInChars="15" />
+    </s:Scroller>
+    
+    <!--- Defines the Label that is used for prompt text. The includeInLayout property is false so the prompt text does not affect measurement. -->
+    <s:Label id="promptDisplay"
+                mouseEnabled="false" mouseChildren="false"
+                includeIn="normalWithPrompt,disabledWithPrompt" 
+                includeInLayout="false"
+                />            
+
+</s:Skin>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin name="CustomMXScrollBarThumbSkin"
+			 xmlns:fx="http://ns.adobe.com/mxml/2009"
+			 xmlns:s="library://ns.adobe.com/flex/spark">
+	<!-- states -->
+	<s:states>
+		<s:State name="up" />
+		<s:State name="over" />
+		<s:State name="down" />
+		<s:State name="disabled" />
+	</s:states>
+	
+	<fx:Script>
+		<![CDATA[
+			override protected function initializationComplete():void {
+				useChromeColor = true;
+				super.initializationComplete();
+			}
+		]]>
+	</fx:Script>
+	
+	<!-- background -->
+	<s:Rect left="0" top="-1" right="0" bottom="-1" minWidth="6" radiusX="3" radiusY="3">
+		<s:fill>
+			<s:SolidColor color="0xcedbef" alpha="0.1" alpha.over="0.2" alpha.down="0.15"/>
+		</s:fill>
+	</s:Rect>
+	
+</s:SparkSkin>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 creationComplete="startEffects()">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			import spark.components.supportClasses.SkinnableComponent;
+			
+			private var _target:SkinnableComponent;
+			
+			public function get target():SkinnableComponent
+			{
+				return _target;
+			}
+			
+			public function set target(value:SkinnableComponent):void
+			{
+				_target = value;
+				
+				if (_target.skin)
+					_target.skin.addEventListener(FlexEvent.UPDATE_COMPLETE,
+						skin_updateCompleteHandler, false, 0, true);
+			}
+			
+			override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+			{
+				//target.skin.alpha *= .6;
+				this.setActualSize(target.width, target.height);
+				super.updateDisplayList(target.width, target.height);
+			} 
+			
+			private function skin_updateCompleteHandler(event:Event):void
+			{
+				invalidateDisplayList();
+			}
+			
+			private function startEffects():void {
+				fadeEffect.play()
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<s:Fade id="fadeEffect" target="{focusGroup}" alphaFrom="0" alphaTo="1" repeatCount="0" repeatBehavior="reverse" duration="1000" />    
+	</fx:Declarations>
+	
+	<s:Rect id="focusGroup" top="-2" left="-2" right="-2" bottom="-2">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="0xFFFFFF" />
+				<s:GradientEntry color="0x5555FF" />
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	
+</s:Group>

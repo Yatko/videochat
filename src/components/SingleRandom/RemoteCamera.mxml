@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+* VIDEOSOFTWARE.PRO
+* Copyright 2011 videosoftware.pro
+* All Rights Reserved.
+*
+* You may NOT sell, resell or redistribute or otherwise make available this software or parts of its source code.
+* See the SVC- License for more details. You should have received a copy of the license along with this software.
+* If not, contact us at <http://www.videosoftware.pro/contact/>.
+*/
+-->
+
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:ns="components_single.*"
+		 initialize="init()" creationComplete="complete()">
+	
+	<fx:Script>
+		<![CDATA[
+			import components_single.controller.RemoteCameraController;
+			
+			import core.util.Common;
+			import core.util.SkinConfig;
+			
+			public var controller:RemoteCameraController = new RemoteCameraController();
+			
+			private function init():void {
+				controller.panel = panel;
+				controller.settingsPanel = settingsPanel;
+				controller.settingsPanelHide = settingsPanelHide;
+				controller.settingsPanelShow = settingsPanelShow;
+				controller.speakerVolumeLabel = speakerVolumeLabel;
+				controller.speakerVolumeSlider = speakerVolumeSlider;
+				controller.videoDisplay = videoDisplay;
+				controller.remote_camera = this;
+				controller.remote_connection = remote_connection;
+				controller.info_1 = info_1;
+				controller.info_2 = info_2;
+				controller.init();
+			}
+			private function complete():void {
+				controller.complete();
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<s:Fade id="settingsPanelHide" target="{settingsPanel}" alphaTo="0.0" duration="300"/>
+		<s:Fade id="settingsPanelShow" target="{settingsPanel}" alphaTo="0.7" duration="300"/>
+	</fx:Declarations>
+	
+	<s:HGroup>
+		<s:SkinnableContainer id="panel" skinClass="{SkinConfig.VIDEO_BOX_SKIN}">
+			<s:VideoDisplay id="videoDisplay" width="320" height="240"/>	
+			
+			<!-- SETTNGS PANEL -->
+			<s:VGroup id="settingsPanel">
+				<s:SkinnableContainer skinClass="{SkinConfig.VIDEO_BOX_SETTINGS_SKIN}" width="320" height="184">
+					<s:VGroup top="10" right="10" bottom="10" left="10">
+						<s:HGroup width="100%">
+							<s:HSlider id="speakerVolumeSlider" minimum="0" maximum="100" width="100%"/>
+							<mx:Image id="speakerVolumeLabel" source="@Embed(source='../../style/common/media/images/speaker.png')" width="16" height="20"/>
+						</s:HGroup>
+						<ns:RemoteConnection id="remote_connection" styleName="infoPanel" width="100%" height="90" maxWidth="300" horizontalScrollPolicy="off" verticalScrollPolicy="off"/>
+					</s:VGroup>
+				</s:SkinnableContainer>
+				<!-- USER INFO -->
+				<s:SkinnableContainer styleName="infoPanel" width="100%" height="50">
+					<s:VGroup top="10" right="10" bottom="10" left="10">
+						<mx:Label id="info_1" link="Common.linkHandler(event);" selectable="true"/>
+						<mx:Label id="info_2" link="Common.linkHandler(event);" selectable="true"/>
+					</s:VGroup>
+				</s:SkinnableContainer>
+			</s:VGroup>
+		</s:SkinnableContainer>
+	</s:HGroup>
+	
+</s:Group>

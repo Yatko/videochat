@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<language>en_US</language>
+	<serviceURL>../../svc/services/registration.php</serviceURL>
+	<configURL>../../svc/services/configuration.php</configURL>
+</config>

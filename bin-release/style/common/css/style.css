@@ -1,0 +1,130 @@
+/**
+* VIDEOSOFTWARE.PRO
+* Copyright 2011 videosoftware.pro
+* All Rights Reserved.
+*
+* You may NOT sell, resell or redistribute or otherwise make available this software or parts of its source code.
+* See the SVC- License for more details. You should have received a copy of the license along with this software.
+* If not, contact us at <http://www.videosoftware.pro/contact/>.
+*/
+
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+/* common CSS */
+
+global
+{
+	content-background-color: #FFFFFF;
+	content-background-alpha: 1.0;
+	selection-color: #000000;
+}
+
+.userlink {
+}
+
+.partnerlink {
+}
+
+.previewVideoButton {
+	fontSize: 16;
+	fontWeight: bold;
+	color: #ff0000;
+}
+
+.svcBodygroup {
+	verticalCenter: 0;
+	horizontalCenter: 0;
+	width: 664;
+	gap: 0;
+}
+
+.svcVideocontainer {
+	height: 256;
+	backgroundAlpha: .8;
+	cornerRadius: 4;
+	borderWeight: 4;
+	borderAlpha: 0;
+}
+
+/*
+a:link {
+	color: white;
+	text-decoration: underline;
+}
+
+
+ScrollBar {
+	up-arrow-skin: ClassReference(null);
+	down-arrow-skin: ClassReference(null);
+	trackSkin: Embed(source="../media/images/ScrollBarTrack.png", scaleGridLeft="1", scaleGridTop="4", scaleGridRight="5", scaleGridBottom="16");
+	thumbUpSkin: Embed(source="../media/images/ScrollBarThumb_up.png", scaleGridLeft="1", scaleGridTop="4", scaleGridRight="5", scaleGridBottom="16");
+	thumbOverSkin: Embed(source="../media/images/ScrollBarThumb_over.png", scaleGridLeft="1", scaleGridTop="4", scaleGridRight="5", scaleGridBottom="16");
+	thumbDownSkin: Embed(source="../media/images/ScrollBarThumb_down.png", scaleGridLeft="1", scaleGridTop="4", scaleGridRight="5", scaleGridBottom="16");
+}
+
+*/
+
+mx|TextArea {
+	verticalScrollBarStyleName: sbTrackStyles;
+	horizontalScrollBarStyleName: sbTrackStyles;
+}
+
+.sbTrackStyles {
+	up-arrow-skin: ClassReference(null);
+	down-arrow-skin: ClassReference(null);
+	trackSkin: ClassReference(null);
+	thumbSkin: ClassReference("style.common.skin.skinScrollBarThumb");
+}
+
+.infoPanel {
+	color: #ffffff;
+	fontSize: 10;
+	fontWeight: bold;
+	backgroundColor: #000000;
+	backgroundAlpha: 0.2;
+	paddingTop: 2;
+	paddingBottom: 1;
+	paddingLeft: 4;
+	paddingRight: 4;
+	verticalGap: 0;
+	borderColor: #000000;
+	borderAlpha: 0.1;
+	borderStyle: solid;
+	borderThickness: 1;
+	cornerRadius: 4;
+}
+
+/*
+mx|Image {
+	brokenImageSkin: Embed("../media/images/unknown-person.jpg");
+	brokenImageBorderSkin: ClassReference(null);
+}
+*/
+
+/*
+.skinVideoBox {
+	skinClass: ClassReference("skinVideoBox");
+}
+
+.skinVideoBoxSettings {
+	skinClass: ClassReference("skinVideoBoxSettings");
+}
+
+.skinConnectBox {
+	skinClass: ClassReference("skinConnectBox");
+}
+
+.skinUserList {
+	skinClass: ClassReference("skinUserList");
+}
+
+.acceptButton {
+	skinClass: ClassReference("skinAcceptButton");
+}
+
+.rejectButton {
+	skinClass: ClassReference("skinRejectButton");
+}
+*/

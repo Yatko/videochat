@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+* VIDEOSOFTWARE.PRO
+* Copyright 2011 videosoftware.pro
+* All Rights Reserved.
+*
+* You may NOT sell, resell or redistribute or otherwise make available this software or parts of its source code.
+* See the SVC- License for more details. You should have received a copy of the license along with this software.
+* If not, contact us at <http://www.videosoftware.pro/contact/>.
+*/
+-->
+
+<!-- SVC Video Call 0.7.93 -->
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:svc="components.SingleRandom.*"
+			   backgroundAlpha="0"
+			   width="760" height="450">
+	
+	<fx:Metadata>
+		[ResourceBundle("i18n")]
+	</fx:Metadata>
+	
+	<fx:Style source="style/common/css/style.css"/>
+	
+	<!-- SVC STYLE -->
+	<!---	Defines the style to be used by SVC. Find included styles under /src/style
+			Important! You must also set: SKIN_STYLE:String = "[STYLENAME]"; in /src/core/uti/SkinConfig.as		
+			Usage: <fx:Style source="style/[STYLENAME]/css/style.css"/> 
+			-->
+	<fx:Style source="style/plain/css/style.css"/>
+	
+	<!-- SVC LAYOUT -->
+	<!---	Defines the layout (component module) used by SVC. Find included styles under /src/components
+			Usage: 	<svc:[COMPONENTNAME] />
+			-->
+	<svc:SingleRandom />
+	
+</s:Application>

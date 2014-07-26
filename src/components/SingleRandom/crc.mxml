@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+* VIDEOSOFTWARE.PRO
+* Copyright 2011 videosoftware.pro
+* All Rights Reserved.
+*
+* You may NOT sell, resell or redistribute or otherwise make available this software or parts of its source code.
+* See the SVC- License for more details. You should have received a copy of the license along with this software.
+* If not, contact us at <http://www.videosoftware.pro/contact/>.
+*/
+-->
+
+<!-- Random, Single | SVC Video Call-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:ns="components_single.*"
+			   xmlns:svc="components.SingleRandom.*"
+			   preinitialize="preinit()"
+			   verticalCenter="0" horizontalCenter="0"
+			   width="760" height="550">
+
+	<fx:Declarations>
+		<mx:HTTPService id="configHttpService" resultFormat="object" result="getConfig(event)" url="svc/config/config.xml" contentType="application/xml" />
+	</fx:Declarations>
+	
+	<fx:Script source="SingleRandomController.as"/>
+
+	
+	<s:BorderContainer styleName="svcContainer" verticalCenter="0" horizontalCenter="0"
+					   width="760">
+		<s:VGroup width="100%" height="100%" gap="0">
+			
+			<!-- STATUS MESSAGE-->
+			<s:BorderContainer styleName="statusContainer" width="100%" height="25">
+				<s:HGroup paddingLeft="6">
+					<ns:AutomatedLocalConnection id="local_connection"/>
+					<mx:Label text="&#9658;"/>
+					<mx:Label id="statusLabel" link="Common.linkHandler(event);" selectable="true"/>
+				</s:HGroup>
+			</s:BorderContainer>
+			
+			<s:HGroup width="100%" gap="0">
+				<!-- VIDEO WINDOWS -->
+				<s:BorderContainer styleName="videoContainer">
+					<s:VGroup horizontalCenter="0" verticalCenter="0" paddingLeft="4" paddingRight="4" paddingTop="4" paddingBottom="4">
+						<!-- PARTNER VIDEO -->
+						<!-- TODO remove bordercontainer, add panel-->
+						<s:BorderContainer backgroundColor="0x000000" borderAlpha="0" borderWeight="0">
+							<s:TileGroup id="remoters" width="320" height="240"/>
+						</s:BorderContainer>
+						<!-- MY VIDEO -->
+						<svc:LocalCamera id="local_camera" />
+					</s:VGroup>
+				</s:BorderContainer>
+				
+				
+				<!-- CHAT AREA-->
+				<s:BorderContainer styleName="chatContainer" width="100%" height="100%">
+					<!-- TEXT CHAT -->
+					<s:VGroup width="100%" height="100%" paddingLeft="4" paddingRight="4" paddingTop="4" paddingBottom="4" >
+						<mx:TextArea id="chatOutput" valueCommit="chatOutput.verticalScrollPosition = chatOutput.maxVerticalScrollPosition" link="Common.linkHandler(event);"
+									 verticalScrollPolicy="auto" editable="false" styleName="chatOutput"
+									 width="100%" height="100%"/>
+						<s:TextInput id="chatInput" styleName="chatInput" width="100%" paddingLeft="15"/>
+					</s:VGroup>
+					<!-- CREDITS BUTTON -->
+					<s:Button label="videosoftware.pro" id="creditButton" click="Common.onLinkButtonClick('http://www.videosoftware.pro')" styleName="svcButton"/>
+					<!-- NEXT BUTTON -->
+					<s:Button id="findNextButton" styleName="findNextButton"/>
+				</s:BorderContainer>
+			</s:HGroup>
+			
+		</s:VGroup>	
+		
+	</s:BorderContainer>
+
+	
+	<!-- LOADER -->
+	<mx:Image id="loader" styleName="loader" source="@Embed(source='style/common/media/animations/loading.swf')" width="80" height="80"/>
+	
+</s:Group>

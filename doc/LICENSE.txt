@@ -1,0 +1,3 @@
+Video Chat Code license GNU GPL v3
+https://github.com/Yatko/video-chat
+http://www.gnu.org/licenses/gpl.html
