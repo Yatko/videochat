@@ -1,6 +1,8 @@
 video-chat
 ==========
 
+If you are looking for different layouts, alternatives and earlier versions of this project, you will find them here: https://code.google.com/p/video-chat/downloads/list
+
 * INSTALLATION: first identify your software package SVC-{{PACKAGENAME}} (ex. SVC-SR). Read carefully and follow the installation description, related to your software package (component bundle):
 http://www.videosoftware.pro/forum/FORUM-Installation-Upgrade-Documentation--36
 
@@ -11,6 +13,6 @@ http://www.videosoftware.pro/forum/FORUM-Problems-Troubleshooting
 
 * IMAGES: background images are courtesy of photos8.com - THANK YOU!
 
-NOTICE: disregard any previous licenses and/or resellers, copies and prices. Starting today, this software is free and open source (GPL V2). Enjoy! ;)
+NOTICE: disregard any previous licenses and/or resellers, copies and prices. Starting today, this software is free and open source (GPL V3). Enjoy! ;)
 
 Thanks for using Yatko/video-chat :)
